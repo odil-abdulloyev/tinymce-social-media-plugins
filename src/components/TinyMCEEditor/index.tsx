@@ -5,6 +5,7 @@ import content_style from './css/content.css?inline';
 import './plugins/telegramembed';
 import './plugins/instagramembed';
 import './plugins/twitterembed';
+import './plugins/youtubeembed';
 
 interface Props {
   editorRef: MutableRefObject<EditorType | null>;
@@ -39,11 +40,12 @@ export const TinyMCEEditor: FC<Props> = ({
           'telegramembed',
           'instagramembed',
           'twitterembed',
+          'youtubeembed',
         ],
         toolbar:
           'bold italic | alignleft aligncenter alignright alignjustify | ' +
-          'bullist numlist | preview fullscreen | ' +
-          'forecolor backcolor | telegramembed | instagramembed | twitterembed | code | help',
+          'bullist numlist | preview fullscreen | forecolor backcolor | ' +
+          'telegramembed | instagramembed | twitterembed | youtubeembed | code | help',
         content_style,
       }}
     />
