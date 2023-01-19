@@ -25,7 +25,7 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
               type: 'input',
               name: 'url',
               label: 'Telegram post url',
-              placeholder: 'https://t.me/telegram/123',
+              placeholder: 'https://t.me/telegram/1',
               inputMode: 'url',
             },
             {

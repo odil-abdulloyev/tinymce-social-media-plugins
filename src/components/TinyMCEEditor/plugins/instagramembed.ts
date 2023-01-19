@@ -25,7 +25,7 @@ tinymce.PluginManager.add(INSTAGRAM_WIDGET_NAME, (editor, url) => {
               type: 'input',
               name: 'url',
               label: 'Instagram post url',
-              placeholder: 'https://www.instagram.com/p/CnXOeIWhMOH',
+              placeholder: 'https://www.instagram.com/p/C',
               inputMode: 'url',
             },
             {

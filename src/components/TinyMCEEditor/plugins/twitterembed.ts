@@ -26,8 +26,7 @@ tinymce.PluginManager.add(TWITTER_PLUGIN_NAME, (editor, url) => {
               type: 'input',
               name: 'url',
               label: 'Twitter post url',
-              placeholder:
-                'https://twitter.com/Twitter/status/1601692766257709056',
+              placeholder: 'https://twitter.com/jack/status/20',
               inputMode: 'url',
             },
             {
