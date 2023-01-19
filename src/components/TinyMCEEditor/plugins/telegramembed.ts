@@ -36,7 +36,7 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
             {
               type: 'checkbox',
               name: 'userpic',
-              label: 'Hide avatar',
+              label: 'Show avatar',
             },
             {
               type: 'colorpicker',
@@ -48,11 +48,17 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
           { type: 'cancel', text: 'Cancel' },
           { type: 'submit', text: 'Save', primary: true },
         ],
+        initialData: {
+          url: '',
+          dark: false,
+          userpic: true,
+          color: '#2481cc',
+        },
         onSubmit(api) {
           const { url, dark, userpic, color } = api.getData();
           const telegramPostId = TELEGRAM_POST_URL_REGEX.exec(url)?.[3];
           if (telegramPostId) {
-            const html = `<div style="max-width:100%;width:455px"><div data-telegram-post="${telegramPostId}" data-width="100%" data-userpic="${!userpic}" data-color="${color}" data-dark="${
+            const html = `<div style="max-width:100%;width:455px"><div data-telegram-post="${telegramPostId}" data-width="100%" data-userpic="${userpic}" data-color="${color}" data-dark="${
               dark ? 1 : 0
             }"></div></div>`;
             pasteHtmlAtCaret(editor.contentWindow, html);
