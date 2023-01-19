@@ -29,6 +29,11 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
               inputMode: 'url',
             },
             {
+              type: 'input',
+              name: 'width',
+              label: 'Width',
+            },
+            {
               type: 'checkbox',
               name: 'dark',
               label: 'Dark theme',
@@ -50,15 +55,16 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
         ],
         initialData: {
           url: '',
+          width: '455px',
           dark: false,
           userpic: true,
           color: '#2481cc',
         },
         onSubmit(api) {
-          const { url, dark, userpic, color } = api.getData();
+          const { url, width, dark, userpic, color } = api.getData();
           const telegramPostId = TELEGRAM_POST_URL_REGEX.exec(url)?.[3];
           if (telegramPostId) {
-            const html = `<div style="max-width:100%;width:455px"><div data-telegram-post="${telegramPostId}" data-width="100%" data-userpic="${userpic}" data-color="${color}" data-dark="${
+            const html = `<div style="max-width:100%;width:${width}"><div data-telegram-post="${telegramPostId}" data-width="100%" data-userpic="${userpic}" data-color="${color}" data-dark="${
               dark ? 1 : 0
             }"></div></div>`;
             pasteHtmlAtCaret(editor.contentWindow, html);
