@@ -3,6 +3,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { Editor as EditorType } from 'tinymce';
 import content_style from './css/content.css?inline';
 import './plugins/telegramembed';
+import './plugins/instagramembed';
 
 interface Props {
   editorRef: MutableRefObject<EditorType | null>;
@@ -35,11 +36,12 @@ export const TinyMCEEditor: FC<Props> = ({
           'help',
           'wordcount',
           'telegramembed',
+          'instagramembed',
         ],
         toolbar:
           'bold italic | alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist | preview fullscreen | ' +
-          'forecolor backcolor | telegramembed | code | help',
+          'forecolor backcolor | telegramembed | instagramembed | code | help',
         content_style,
       }}
     />
