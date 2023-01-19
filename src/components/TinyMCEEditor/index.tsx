@@ -4,6 +4,7 @@ import { Editor as EditorType } from 'tinymce';
 import content_style from './css/content.css?inline';
 import './plugins/telegramembed';
 import './plugins/instagramembed';
+import './plugins/twitterembed';
 
 interface Props {
   editorRef: MutableRefObject<EditorType | null>;
@@ -37,11 +38,12 @@ export const TinyMCEEditor: FC<Props> = ({
           'wordcount',
           'telegramembed',
           'instagramembed',
+          'twitterembed',
         ],
         toolbar:
           'bold italic | alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist | preview fullscreen | ' +
-          'forecolor backcolor | telegramembed | instagramembed | code | help',
+          'forecolor backcolor | telegramembed | instagramembed | twitterembed | code | help',
         content_style,
       }}
     />
