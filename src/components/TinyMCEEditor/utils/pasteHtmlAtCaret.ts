@@ -1,7 +1,7 @@
-export const pasteHtmlAtCaret = (window: Window, html: string) => {
+export const pasteHtmlAtCaret = (ctx: Window, html: string) => {
   let sel, range;
-  if (window.getSelection) {
-    sel = window.getSelection();
+  if (ctx.getSelection) {
+    sel = ctx.getSelection();
     if (sel && sel.getRangeAt && sel.rangeCount) {
       range = sel.getRangeAt(0);
       range.deleteContents();
