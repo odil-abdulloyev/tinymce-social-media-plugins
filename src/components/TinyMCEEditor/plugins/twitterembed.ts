@@ -1,5 +1,4 @@
 import tinymce from 'tinymce';
-import { pasteHtmlAtCaret } from '../utils/pasteHtmlAtCaret';
 
 const TWITTER_PLUGIN_NAME = 'twitterembed';
 const TWITTER_POST_URL_REGEX =
@@ -63,7 +62,7 @@ tinymce.PluginManager.add(TWITTER_PLUGIN_NAME, (editor, url) => {
             const html = `<div data-tweet-id="${tweetId}" data-lang="${lang}" data-theme="${
               dark ? 'dark' : 'light'
             }" style="width:${width};max-width:100%"></div>`;
-            pasteHtmlAtCaret(editor.contentWindow, html);
+            editor.insertContent(html);
             const containers =
               editor.contentDocument.querySelectorAll<HTMLElement>(
                 '[data-tweet-id]'

@@ -1,5 +1,4 @@
 import tinymce from 'tinymce';
-import { pasteHtmlAtCaret } from '../utils/pasteHtmlAtCaret';
 
 const YOUTUBE_PLUGIN_NAME = 'youtubeembed';
 const YOUTUBE_POST_URL_REGEX =
@@ -57,7 +56,7 @@ tinymce.PluginManager.add(YOUTUBE_PLUGIN_NAME, (editor, url) => {
             const html = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?start=${start}&amp;controls=${
               controls ? 1 : 0
             }" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" data-youtube-video allowfullscreen></iframe>`;
-            pasteHtmlAtCaret(editor.contentWindow, html);
+            editor.insertContent(html);
             api.close();
           } else {
             api.redial({

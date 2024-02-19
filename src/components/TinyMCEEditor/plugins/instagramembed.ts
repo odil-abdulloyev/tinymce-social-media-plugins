@@ -1,5 +1,4 @@
 import tinymce from 'tinymce';
-import { pasteHtmlAtCaret } from '../utils/pasteHtmlAtCaret';
 
 const INSTAGRAM_WIDGET_NAME = 'instagramembed';
 const INSTAGRAM_POST_URL_REGEX =
@@ -56,7 +55,7 @@ tinymce.PluginManager.add(INSTAGRAM_WIDGET_NAME, (editor, url) => {
             const html = `<div data-instgrm-permalink="${permalink}"${
               captioned ? 'data-instgrm-captioned="true"' : ''
             } data-width="${width}"></div>`;
-            pasteHtmlAtCaret(editor.contentWindow, html);
+            editor.insertContent(html);
             const containers =
               editor.contentDocument.querySelectorAll<HTMLElement>(
                 '[data-instgrm-permalink]'

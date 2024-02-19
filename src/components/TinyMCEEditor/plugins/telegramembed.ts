@@ -1,5 +1,4 @@
 import tinymce from 'tinymce';
-import { pasteHtmlAtCaret } from '../utils/pasteHtmlAtCaret';
 
 const TELEGRAM_POST_URL_REGEX =
   /https?:\/\/(www\.)?(t|telegram)\.me\/([a-z0-9_-]+\/\d+)\/?$/i;
@@ -67,7 +66,7 @@ tinymce.PluginManager.add(TELEGRAM_PLUGIN_NAME, (editor, url) => {
             const html = `<div style="max-width:100%;width:${width}"><div data-telegram-post="${telegramPostId}" data-width="100%" data-userpic="${userpic}" data-color="${color}" data-dark="${
               dark ? 1 : 0
             }"></div></div>`;
-            pasteHtmlAtCaret(editor.contentWindow, html);
+            editor.insertContent(html);
             const containers =
               editor.contentDocument.querySelectorAll<HTMLElement>(
                 '[data-telegram-post]'
